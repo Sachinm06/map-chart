@@ -1,0 +1,45 @@
+body {
+    padding: 50px;
+}
+
+#searchInput {
+    float: right;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 200px;
+
+}
+
+#countrySelect {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px !important;
+    font-size: 18px;
+    margin-left: 10px;
+    appearance: none;
+
+}
+
+#mapContainer {
+    min-width: 310px;
+    height: 700px;
+    margin: 0 auto;
+}
+
+#countryPopup {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 45px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    right: 10%;
+    top: 40%;
+}

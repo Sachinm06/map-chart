@@ -6,80 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Highcharts Map</title>
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
     <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-    <h2>Interactive Map</h2>
+    <h2>Priority Indicators</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore rem quos, ex vero quae temporibus beatae
+        reprehenderit saepe dolores, eveniet sequi repellendus iure mollitia amet eos quibusdam, nobis dolor eaque.
+        Expedita itaque autem aperiam eaque ipsam temporibus asperiores odit architecto nesciunt facilis eum iure a
+        dolorum libero, corrupti, sed mollitia?</p>
+
+    <input type="text" id="searchInput" placeholder="Search Countries">
 
     <select id="countrySelect">
         <option value="">Select a country</option>
-        <option value="RU">Russia</option>
-        <option value="CA">Canada</option>
-        <option value="CN">China</option>
-        <option value="US">United States</option>
-        <option value="BR">Brazil</option>
-        <option value="AU">Australia</option>
-        <option value="IN">India</option>
-        <option value="AR">Argentina</option>
-        <option value="KZ">Kazakhstan</option>
-        <option value="DZ">Algeria</option>
-        <option value="CD">Democratic Republic of the Congo</option>
-        <option value="GL">Greenland</option>
-        <option value="SA">Saudi Arabia</option>
-        <option value="MX">Mexico</option>
-        <option value="ID">Indonesia</option>
-        <option value="SD">Sudan</option>
-        <option value="LY">Libya</option>
-        <option value="IR">Iran</option>
-        <option value="MN">Mongolia</option>
-        <option value="PE">Peru</option>
     </select>
 
-    <div id="mapContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="mapContainer" style="min-width: 310px; height: 700px; margin: 0 auto"></div>
 
-    <script>
-        const mapChart = Highcharts.mapChart('mapContainer', {
-            chart: {
-                map: 'custom/world'
-            },
-            title: {
-                text: 'World Map'
-            },
-            series: [{
-                mapData: Highcharts.maps['custom/world'],
-                name: 'Highlighted Countries',
-                color: '#E0E0E0',
-                enableMouseTracking: false
-            }]
-        });
+    <div id="countryPopup"></div>
 
-        document.getElementById('countrySelect').addEventListener('change', function () {
-            const selectedCountry = this.value;
-            if (selectedCountry) {
-                const mapSeries = mapChart.series[0];
-                const point = mapSeries.points.find(p => p['hc-key'] === selectedCountry);
-                if (point) {
-                    const randomColor = getRandomColor();
-                    point.update({ color: randomColor });
-                }
-            }
-        });
 
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
