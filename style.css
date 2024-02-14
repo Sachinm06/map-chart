@@ -3,6 +3,11 @@ body {
 }
 
 #searchInput {
+    border: none;
+    font-size: 13px;
+}
+
+.search-area {
     float: right;
     border: 1px solid #ccc;
     padding: 8px;
@@ -13,17 +18,26 @@ body {
     border-right: none;
     border-left: none;
     width: 200px;
+}
 
+.search__icon {
+    width: 20px;
 }
 
 #countrySelect {
+    padding: 10px 30px 10px 10px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    padding: 8px;
-    border-radius: 50px !important;
-    font-size: 18px;
-    margin-left: 10px;
+    border-radius: 30px;
+    background-color: #fff;
     appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
 
+#countrySelect::-ms-expand {
+    display: none;
 }
 
 #mapContainer {
@@ -33,13 +47,31 @@ body {
 }
 
 #countryPopup {
-    display: none;
     position: absolute;
     background-color: white;
-    padding: 45px;
+    padding: 15px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     right: 10%;
     top: 40%;
+    z-index: 999;
+    max-width: 300px;
+    transform: translateX(100%);
+    animation: slideIn 0.3s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+#countryPopup h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }

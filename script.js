@@ -21,11 +21,6 @@ const mapChart = Highcharts.mapChart('mapContainer', {
     }
 });
 
-document.getElementById('searchInput').addEventListener('input', function () {
-    const searchValue = this.value.toLowerCase();
-    const selectedCountry = countrySelect.value;
-    populateMap(selectedCountry ? [selectedCountry] : []);
-});
 
 document.getElementById('countrySelect').addEventListener('change', function () {
     const selectedCountry = this.value;
@@ -36,12 +31,17 @@ document.getElementById('countrySelect').addEventListener('change', function () 
 });
 
 mapChart.series[0].points.forEach(function (point) {
-    point.graphic.element.addEventListener('click', function () {
+    point.graphic.element.addEventListener('mouseover', function () {
         const selectedCountry = point['hc-key'];
         populateMap([selectedCountry]);
         showPopup(selectedCountry);
     });
+
+    point.graphic.element.addEventListener('mouseout', function () {
+        hidePopup();
+    });
 });
+
 
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
@@ -71,13 +71,26 @@ function populateMap(selectedCountries) {
 }
 
 function showPopup(countryCode) {
-    const countryName = Highcharts.maps['custom/world'].features.find(feature => feature.properties['hc-key'] === countryCode).properties['name'];
+    const countryData = Highcharts.maps['custom/world'].features.find(feature => feature.properties['hc-key'] === countryCode).properties;
+    const countryName = countryData['name'];
+    const countryPopulation = countryData['population'];
+    const countryArea = countryData['area'];
+    const countryGDP = countryData['gdp'];
+
     const popup = document.getElementById('countryPopup');
-    popup.textContent = countryName;
+    popup.innerHTML = `
+        <h3>${countryName}</h3>
+        <p>Population: ${countryPopulation}</p>
+        <p>Area: ${countryArea}</p>
+        <p>GDP: ${countryGDP}</p>
+    `;
+    popup.classList.add('slide-in');
     popup.style.display = 'block';
-    const clickedPoint = mapChart.series[0].points.find(point => point['hc-key'] === countryCode);
-    const coordinates = mapChart.pointer.toPixels({ x: clickedPoint.x, y: clickedPoint.y });
-    popup.style.left = coordinates.x + 'px';
-    popup.style.top = coordinates.y + 'px';
+
 }
 
+function hidePopup() {
+    const popup = document.getElementById('countryPopup');
+    popup.classList.remove('slide-in');
+    popup.style.display = 'none';
+}
