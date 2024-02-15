@@ -19,6 +19,9 @@ const mapChart = Highcharts.mapChart('mapContainer', {
     }],
     mapNavigation: {
         enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom'
+        }
     }
 });
 
@@ -184,3 +187,4 @@ function hideMapPopup() {
     popup.classList.remove('slide-in');
     popup.style.display = 'none';
 }
+
