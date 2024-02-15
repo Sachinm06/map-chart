@@ -73,16 +73,16 @@ function populateMap(selectedCountries) {
 function showPopup(countryCode) {
     const countryData = Highcharts.maps['custom/world'].features.find(feature => feature.properties['hc-key'] === countryCode).properties;
     const countryName = countryData['name'];
-    const countryPopulation = countryData['population'];
-    const countryArea = countryData['area'];
-    const countryGDP = countryData['gdp'];
+    const countryPopulation = countryData['continent'];
+    const countryArea = countryData['subregion'];
+    const countryGDP = countryData['iso-a2'];
 
     const popup = document.getElementById('countryPopup');
     popup.innerHTML = `
         <h3>${countryName}</h3>
-        <p>Population: ${countryPopulation}</p>
-        <p>Area: ${countryArea}</p>
-        <p>GDP: ${countryGDP}</p>
+        <p>Continent: ${countryPopulation}</p>
+        <p>Subregion: ${countryArea}</p>
+        <p>Country code: ${countryGDP}</p>
     `;
     popup.classList.add('slide-in');
     popup.style.display = 'block';
