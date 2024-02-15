@@ -1,3 +1,4 @@
+
 const countrySelect = document.getElementById('countrySelect');
 Highcharts.maps['custom/world'].features.forEach((feature) => {
     const countryName = feature.properties['name'];
@@ -26,7 +27,7 @@ document.getElementById('countrySelect').addEventListener('change', function () 
     const selectedCountry = this.value;
     populateMap(selectedCountry ? [selectedCountry] : []);
     if (selectedCountry) {
-        showPopup(selectedCountry);
+        mapPopup(selectedCountry);
     }
 });
 
@@ -86,16 +87,33 @@ function showPopup(countryCode) {
     const countryArea = countryData['woe-id'];
     const countryGDP = countryData['iso-a2'];
 
-    const popup = document.getElementById('countryPopup');
-    popup.innerHTML = `
-        <h3>${countryName}</h3>
-        <p>Continent: ${countryPopulation}</p>
-        <p>Where On Earth IDentifier: ${countryArea}</p>
-        <p class="countryID">Country code: ${countryGDP}</p>
-    `;
-    popup.classList.add('slide-in');
-    popup.style.display = 'block';
-
+    fetch('countries.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const countries = data.countries;
+            if (!Array.isArray(countries)) {
+                throw new Error('JSON data is not an array');
+            }
+            const matchingCountry = countries.find(country => country.country_id === countryGDP);
+            const popup = document.getElementById('countryPopup');
+            popup.innerHTML = `
+                <div class="flag-container">
+                    <img src="${matchingCountry.country_flag}" alt="${countryName} flag" class="flag-img">
+                    <h3>${countryName}</h3>
+                </div>
+                <p>Continent: ${countryPopulation}</p>
+                <p>Where On Earth IDentifier: ${countryArea}</p>
+                <p class="countryID">Country code: ${countryGDP}</p>
+            `;
+            popup.classList.add('slide-in');
+            popup.style.display = 'flex'; 
+        })
+        .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
 
 function mapPopup(countryCode) {
@@ -113,34 +131,47 @@ function mapPopup(countryCode) {
     const Yposition = countryData['hc-middle-y'];
     const countryIdentifier = countryData['woe-id'];
 
+    fetch('countries.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const countries = data.countries;
+            if (!Array.isArray(countries)) {
+                throw new Error('JSON data is not an array');
+            }
+            const matchingCountry = countries.find(country => country.country_id === ISOcode2);
+            const popup = document.getElementById('mapPopup');
+            popup.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    ${matchingCountry ? `<img src="${matchingCountry.country_flag}" alt="${countryName} flag" class="flag-img">` : ''}
+                    <h3>${countryName}</h3>
+                    <span id="mapPopupClose" style="cursor: pointer;">&#66338;</span>
+                </div>
+                <p>Continent: ${countryPopulation}</p>
+                <p>ISO 2 letter country code: ${ISOcode2}</p>
+                <p>ISO 3 letter country code: ${ISOcode3}</p>
+                <p>Region: ${regionwb}</p>
+                <p class="subregion">Subregion: ${countryArea}</p>
+                <p>Abbreviated country name: ${countryAbbrev}</p>
+                <p>Where On Earth IDentifier: ${countryIdentifier}</p>
+                <p>label rank: ${labelrank}</p>
+                <p>Data label X position: ${Xposition}</p>
+                <p>Data label Y position: ${Yposition}</p>
+            `;
+            popup.classList.add('slide-in');
+            popup.style.display = 'block';
 
-
-
-    const popup = document.getElementById('mapPopup');
-    popup.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h3>${countryName}</h3>
-            <span id="mapPopupClose" style="cursor: pointer;">&#66338;</span>
-        </div>
-        <p>Continent: ${countryPopulation}</p>
-        <p>ISO 2 letter country code: ${ISOcode2}</p>
-        <p>ISO 3 letter country code: ${ISOcode3}</p>
-        <p>Region: ${regionwb}</p>
-        <p class="subregion">Subregion: ${countryArea}</p>
-        <p>Abbreviated country name: ${countryAbbrev}</p>
-        <p>Where On Earth IDentifier: ${countryIdentifier}</p>
-        <p>label rank: ${labelrank}</p>
-        <p>Data label X position: ${Xposition}</p>
-        <p>Data label Y position: ${Yposition}</p>
-
-    `;
-    popup.classList.add('slide-in');
-    popup.style.display = 'block';
-
-    document.getElementById('mapPopupClose').addEventListener('click', function () {
-        hideMapPopup();
-    });
+            document.getElementById('mapPopupClose').addEventListener('click', function () {
+                hideMapPopup();
+            });
+        })
+        .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
+
 
 function hidePopup() {
     const popup = document.getElementById('countryPopup');

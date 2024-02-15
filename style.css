@@ -60,6 +60,7 @@ body {
     max-width: 300px;
     transform: translateX(100%);
     animation: slideIn 0.3s ease-in-out forwards;
+    flex-direction: column;
 }
 
 #mapPopup {
@@ -97,7 +98,6 @@ body {
 }
 
 #countryPopup h3 {
-    border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
 }
 
@@ -125,4 +125,22 @@ body {
 .subregion {
     border-bottom: 1px solid rgb(210, 207, 207);
     padding-bottom: 30px;
+}
+
+
+.country-info h3 {
+    margin-left: 10px; 
+}
+
+.flag-img {
+    width: 50px; 
+}
+
+.flag-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(210, 207, 207);
+}
+.country-info{
+    display: block;
 }
