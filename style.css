@@ -56,10 +56,34 @@ body {
     border-radius: 5px;
     right: 10%;
     top: 40%;
-    z-index: 999;
+    z-index: 1;
     max-width: 300px;
     transform: translateX(100%);
     animation: slideIn 0.3s ease-in-out forwards;
+}
+
+#mapPopup {
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    right: 0;
+    top: 30%;
+    width: 500px;
+    height: 500px;
+    z-index: 5;
+    transform: translateX(100%);
+    animation: slideIn 0.3s ease-in-out forwards;
+}
+
+#mapPopup>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(210, 207, 207);
 }
 
 @keyframes slideIn {
@@ -75,4 +99,30 @@ body {
 #countryPopup h3 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
+}
+
+#mapPopup h3 {
+    padding-bottom: 5px;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+#mapPopupClose {
+    cursor: pointer;
+    font-size: 45px;
+    color: rgb(210, 207, 207);
+}
+
+#mapPopupClose:hover {
+    color: rgb(108, 105, 105);
+}
+
+.countryID {
+    font-size: 15px;
+    color: #716d6d;
+}
+
+.subregion {
+    border-bottom: 1px solid rgb(210, 207, 207);
+    padding-bottom: 30px;
 }
