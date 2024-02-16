@@ -1,14 +1,3 @@
-
-const countrySelect = document.getElementById('countrySelect');
-Highcharts.maps['custom/world'].features.forEach((feature) => {
-    const countryName = feature.properties['name'];
-    const countryCode = feature.properties['hc-key'];
-    const option = document.createElement('option');
-    option.value = countryCode;
-    option.textContent = countryName;
-    countrySelect.appendChild(option);
-});
-
 const mapChart = Highcharts.mapChart('mapContainer', {
     chart: {
         map: 'custom/world'
@@ -26,11 +15,40 @@ const mapChart = Highcharts.mapChart('mapContainer', {
 });
 
 
-document.getElementById('countrySelect').addEventListener('change', function () {
-    const selectedCountry = this.value;
-    populateMap(selectedCountry ? [selectedCountry] : []);
-    if (selectedCountry) {
-        mapPopup(selectedCountry);
+
+function highlightCountries(countryCodes) {
+    const mapSeries = mapChart.series[0];
+    const mapPoints = mapSeries.points;
+
+    mapPoints.forEach(point => {
+        const countryCode = point['hc-key'];
+        if (countryCodes.includes(countryCode)) {
+            point.update({ color: 'red' }, false);
+        } else {
+            point.update({ color: 'blue' }, false);
+        }
+    });
+
+    mapChart.redraw();
+}
+
+$.getJSON("map.json", function (data) {
+    const selectElement = document.createElement('select');
+    selectElement.id = 'countrySelect';
+    selectElement.innerHTML = Object.keys(data).map(category => `<option value="${category}">${category}</option>`).join('');
+
+    selectElement.addEventListener('change', (event) => {
+        const selectedCategory = event.target.value;
+        const selectedCountries = data[selectedCategory].map(country => country.country_id);
+
+        highlightCountries(selectedCountries);
+    });
+
+    const mapContainer = document.getElementById('mapContainer');
+    if (mapContainer) {
+        mapContainer.parentNode.insertBefore(selectElement, mapContainer);
+    } else {
+        console.error('Map container not found.');
     }
 });
 
@@ -45,25 +63,14 @@ mapChart.series[0].points.forEach(function (point) {
         hidePopup();
     });
 });
+
 mapChart.series[0].points.forEach(function (point) {
     point.graphic.element.addEventListener('click', function () {
         const selectedCountry = point['hc-key'];
         populateMap([selectedCountry]);
         mapPopup(selectedCountry);
     });
-
-
 });
-
-
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
 
 function populateMap(selectedCountries) {
     const mapSeries = mapChart.series[0];
@@ -76,7 +83,7 @@ function populateMap(selectedCountries) {
     selectedCountries.forEach((code) => {
         const point = mapSeries.points.find(p => p['hc-key'] === code);
         if (point) {
-            point.update({ color: getRandomColor() }, false);
+            point.update({ color: '#008080' }, false);
         }
     });
 
@@ -114,7 +121,7 @@ function showPopup(countryCode) {
                 <p class="countryID">Country code: ${countryGDP}</p>
             `;
             popup.classList.add('slide-in');
-            popup.style.display = 'flex'; 
+            popup.style.display = 'flex';
         })
         .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
@@ -175,7 +182,6 @@ function mapPopup(countryCode) {
         .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
 
-
 function hidePopup() {
     const popup = document.getElementById('countryPopup');
     popup.classList.remove('slide-in');
@@ -187,4 +193,3 @@ function hideMapPopup() {
     popup.classList.remove('slide-in');
     popup.style.display = 'none';
 }
-

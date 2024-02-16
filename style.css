@@ -24,22 +24,6 @@ body {
     width: 20px;
 }
 
-#countrySelect {
-    padding: 10px 30px 10px 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    background-color: #fff;
-    appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-}
-
-#countrySelect::-ms-expand {
-    display: none;
-}
-
 #mapContainer {
     min-width: 310px;
     height: 700px;
@@ -127,13 +111,12 @@ body {
     padding-bottom: 30px;
 }
 
-
 .country-info h3 {
-    margin-left: 10px; 
+    margin-left: 10px;
 }
 
 .flag-img {
-    width: 50px; 
+    width: 50px;
 }
 
 .flag-container {
@@ -141,6 +124,25 @@ body {
     align-items: center;
     border-bottom: 1px solid rgb(210, 207, 207);
 }
-.country-info{
+
+.country-info {
     display: block;
+}
+
+#countrySelect {
+    padding: 10px 30px 10px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: #fff;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    margin-right: 10px;
+}
+
+#countrySelect:hover,
+#countrySelect:focus {
+    border-color: #aaa;
 }
