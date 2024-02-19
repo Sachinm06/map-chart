@@ -14,55 +14,75 @@ const mapChart = Highcharts.mapChart('mapContainer', {
     }
 });
 
-
-
 function highlightCountries(countryCodes) {
+    console.log("Highlighting countries:", countryCodes);
+
     const mapSeries = mapChart.series[0];
     const mapPoints = mapSeries.points;
 
     mapPoints.forEach(point => {
         const countryCode = point['hc-key'];
-        if (countryCodes.includes(countryCode)) {
-            point.update({ color: 'red' }, false);
+        if (countryCodes.includes(countryCode.toLowerCase())) {
+            point.update({ color: '#FF0000' }, false);
         } else {
-            point.update({ color: 'blue' }, false);
+            point.update({ color: '#E0E0E0' }, false);
         }
     });
 
     mapChart.redraw();
 }
 
-$.getJSON("map.json", function (data) {
-    const selectElement = document.createElement('select');
-    selectElement.id = 'countrySelect';
-    selectElement.innerHTML = Object.keys(data).map(category => `<option value="${category}">${category}</option>`).join('');
+let data; 
 
-    selectElement.addEventListener('change', (event) => {
-        const selectedCategory = event.target.value;
-        const selectedCountries = data[selectedCategory].map(country => country.country_id);
+$.getJSON("map.json", function (jsonData) {
+data = jsonData; 
+const selectElement = document.createElement('select');
+selectElement.id = 'countrySelect';
+selectElement.innerHTML = Object.keys(data).map(category => `<option value="${category}">${category}</option>`).join('');
 
-        highlightCountries(selectedCountries);
-    });
+let selectedCountries = [];
 
-    const mapContainer = document.getElementById('mapContainer');
-    if (mapContainer) {
-        mapContainer.parentNode.insertBefore(selectElement, mapContainer);
-    } else {
-        console.error('Map container not found.');
-    }
+selectElement.addEventListener('change', (event) => {
+const selectedCategory = event.target.value;
+const selectedCountriesData = data[selectedCategory];
+selectedCountries = selectedCountriesData.map(country => country.country_id.toLowerCase());
+
+console.log("Selected countries:", selectedCountries);
+console.log("Selected category data:", selectedCountriesData);
+
+highlightCountries(selectedCountries);
 });
 
+const mapContainer = document.getElementById('mapContainer');
+if (mapContainer) {
+mapContainer.parentNode.insertBefore(selectElement, mapContainer);
+} else {
+console.error('Map container not found.');
+}
+});
+
+// Event listeners for mouseover and mouseout
 mapChart.series[0].points.forEach(function (point) {
-    point.graphic.element.addEventListener('mouseover', function () {
-        const selectedCountry = point['hc-key'];
-        populateMap([selectedCountry]);
-        showPopup(selectedCountry);
-    });
-
-    point.graphic.element.addEventListener('mouseout', function () {
-        hidePopup();
-    });
+point.graphic.element.addEventListener('mouseover', function () {
+const selectedCountry = point['hc-key'];
+const selectElement = document.getElementById('countrySelect');
+const selectedCategory = selectElement.value;
+const selectedCountriesData = data[selectedCategory];
+const selectedCountries = selectedCountriesData.map(country => country.country_id.toLowerCase());
+if (selectedCountries.includes(selectedCountry)) {
+    console.log("Mouse over selected country:", selectedCountry);
+    showPopup(selectedCountry);
+}
 });
+
+point.graphic.element.addEventListener('mouseout', function () {
+hidePopup();
+});
+});
+
+
+
+
 
 mapChart.series[0].points.forEach(function (point) {
     point.graphic.element.addEventListener('click', function () {
