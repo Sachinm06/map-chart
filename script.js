@@ -14,6 +14,8 @@ const mapChart = Highcharts.mapChart('mapContainer', {
     }
 });
 
+let selectedCountries = [];
+
 function highlightCountries(countryCodes) {
     console.log("Highlighting countries:", countryCodes);
 
@@ -32,57 +34,57 @@ function highlightCountries(countryCodes) {
     mapChart.redraw();
 }
 
-let data; 
-
 $.getJSON("map.json", function (jsonData) {
-data = jsonData; 
-const selectElement = document.createElement('select');
-selectElement.id = 'countrySelect';
-selectElement.innerHTML = Object.keys(data).map(category => `<option value="${category}">${category}</option>`).join('');
+    const selectElement = document.createElement('select');
+    selectElement.id = 'countrySelect';
+    selectElement.innerHTML = Object.keys(jsonData).map(category => `<option value="${category}">${category}</option>`).join('');
 
-let selectedCountries = [];
+    selectElement.addEventListener('change', (event) => {
+        const selectedCategory = event.target.value;
+        const selectedCountriesData = jsonData[selectedCategory];
+        selectedCountries = selectedCountriesData.map(country => country.country_id.toLowerCase());
 
-selectElement.addEventListener('change', (event) => {
-const selectedCategory = event.target.value;
-const selectedCountriesData = data[selectedCategory];
-selectedCountries = selectedCountriesData.map(country => country.country_id.toLowerCase());
+        console.log("Selected countries:", selectedCountries);
+        console.log("Selected category data:", selectedCountriesData);
 
-console.log("Selected countries:", selectedCountries);
-console.log("Selected category data:", selectedCountriesData);
+        highlightCountries(selectedCountries);
+    });
 
-highlightCountries(selectedCountries);
+    const mapContainer = document.getElementById('mapContainer');
+    if (mapContainer) {
+        mapContainer.parentNode.insertBefore(selectElement, mapContainer);
+    } else {
+        console.error('Map container not found.');
+    }
+
+    selectElement.dispatchEvent(new Event('change'));
 });
 
-const mapContainer = document.getElementById('mapContainer');
-if (mapContainer) {
-mapContainer.parentNode.insertBefore(selectElement, mapContainer);
-} else {
-console.error('Map container not found.');
-}
-});
-
-// Event listeners for mouseover and mouseout
 mapChart.series[0].points.forEach(function (point) {
-point.graphic.element.addEventListener('mouseover', function () {
-const selectedCountry = point['hc-key'];
-const selectElement = document.getElementById('countrySelect');
-const selectedCategory = selectElement.value;
-const selectedCountriesData = data[selectedCategory];
-const selectedCountries = selectedCountriesData.map(country => country.country_id.toLowerCase());
-if (selectedCountries.includes(selectedCountry)) {
-    console.log("Mouse over selected country:", selectedCountry);
-    showPopup(selectedCountry);
-}
+    point.graphic.element.addEventListener('click', function (event) {
+        event.stopPropagation();
+
+        const selectedCountry = point['hc-key'];
+        if (selectedCountries.includes(selectedCountry)) {
+            console.log("Country clicked:", selectedCountry);
+            showPopup(selectedCountry);
+        }
+    });
 });
 
-point.graphic.element.addEventListener('mouseout', function () {
-hidePopup();
+mapChart.series[0].points.forEach(function (point) {
+    point.graphic.element.addEventListener('mouseover', function () {
+        const selectedCountry = point['hc-key'];
+        if (selectedCountries.includes(selectedCountry)) {
+            console.log("Mouse over selected country:", selectedCountry);
+            showPopup(selectedCountry);
+        }
+    });
+
+    point.graphic.element.addEventListener('mouseout', function () {
+        hidePopup();
+    });
 });
-});
-
-
-
-
 
 mapChart.series[0].points.forEach(function (point) {
     point.graphic.element.addEventListener('click', function () {
