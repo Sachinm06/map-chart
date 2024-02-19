@@ -1,5 +1,5 @@
 body {
-    padding: 20px;
+    padding: 50px;
 }
 
 #searchInput {
@@ -145,4 +145,8 @@ body {
 #countrySelect:hover,
 #countrySelect:focus {
     border-color: #aaa;
+}
+
+.highcharts-point:hover {
+    fill: #008080 !important; 
 }
