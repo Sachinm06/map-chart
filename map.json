@@ -2,799 +2,996 @@
     "Maternal Mortality Ratio (per 100,000 live births)": [
         {
             "country_id": "AF",
-            "country_name": "Afghanistan"
+            "country_name": "Afghanistan",
+            "value": 4
         },
         {
             "country_id": "AL",
-            "country_name": "Albania"
+            "country_name": "Albania",
+            "value": 3
         },
         {
             "country_id": "DZ",
-            "country_name": "Algeria"
+            "country_name": "Algeria",
+            "value": 1
         },
         {
             "country_id": "AO",
-            "country_name": "Angola"
+            "country_name": "Angola",
+            "value": 2
         },
         {
             "country_id": "AR",
-            "country_name": "Argentina"
+            "country_name": "Argentina",
+            "value": 5
         },
         {
             "country_id": "AM",
-            "country_name": "Armenia"
+            "country_name": "Armenia",
+            "value": 1
         },
         {
             "country_id": "AU",
-            "country_name": "Australia"
+            "country_name": "Australia",
+            "value": 2
         },
         {
             "country_id": "AT",
-            "country_name": "Austria"
+            "country_name": "Austria",
+            "value": 3
         },
         {
             "country_id": "AZ",
-            "country_name": "Azerbaijan"
+            "country_name": "Azerbaijan",
+            "value": 4
         },
         {
             "country_id": "BD",
-            "country_name": "Bangladesh"
+            "country_name": "Bangladesh",
+            "value": 5
         },
         {
             "country_id": "BY",
-            "country_name": "Belarus"
+            "country_name": "Belarus",
+            "value": 1
         },
         {
             "country_id": "BE",
-            "country_name": "Belgium"
+            "country_name": "Belgium",
+            "value": 2
         },
         {
             "country_id": "BZ",
-            "country_name": "Belize"
+            "country_name": "Belize",
+            "value": 3
         },
         {
             "country_id": "BJ",
-            "country_name": "Benin"
+            "country_name": "Benin",
+            "value": 4
         },
         {
             "country_id": "BT",
-            "country_name": "Bhutan"
+            "country_name": "Bhutan",
+            "value": 5
         },
         {
             "country_id": "BO",
-            "country_name": "Bolivia"
+            "country_name": "Bolivia",
+            "value": 1
         },
         {
             "country_id": "BA",
-            "country_name": "Bosnia and Herzegovina"
+            "country_name": "Bosnia and Herzegovina",
+            "value": 2
         },
         {
             "country_id": "BW",
-            "country_name": "Botswana"
+            "country_name": "Botswana",
+            "value": 3
         },
         {
             "country_id": "BR",
-            "country_name": "Brazil"
+            "country_name": "Brazil",
+            "value": 4
         },
         {
             "country_id": "BN",
-            "country_name": "Brunei"
+            "country_name": "Brunei",
+            "value": 5
         },
         {
             "country_id": "KE",
-            "country_name": "Kenya"
+            "country_name": "Kenya",
+            "value": 1
         },
         {
             "country_id": "KI",
-            "country_name": "Kiribati"
+            "country_name": "Kiribati",
+            "value": 2
         },
         {
             "country_id": "KW",
-            "country_name": "Kuwait"
+            "country_name": "Kuwait",
+            "value": 3
         },
         {
             "country_id": "KG",
-            "country_name": "Kyrgyzstan"
+            "country_name": "Kyrgyzstan",
+            "value": 4
         },
         {
             "country_id": "LA",
-            "country_name": "Laos"
+            "country_name": "Laos",
+            "value": 5
         },
         {
             "country_id": "LV",
-            "country_name": "Latvia"
+            "country_name": "Latvia",
+            "value": 1
         },
         {
             "country_id": "LB",
-            "country_name": "Lebanon"
+            "country_name": "Lebanon",
+            "value": 2
         },
         {
             "country_id": "LS",
-            "country_name": "Lesotho"
+            "country_name": "Lesotho",
+            "value": 3
         },
         {
             "country_id": "LR",
-            "country_name": "Liberia"
+            "country_name": "Liberia",
+            "value": 4
         },
         {
             "country_id": "LY",
-            "country_name": "Libya"
+            "country_name": "Libya",
+            "value": 5
         },
         {
             "country_id": "LT",
-            "country_name": "Lithuania"
+            "country_name": "Lithuania",
+            "value": 1
         },
         {
             "country_id": "LU",
-            "country_name": "Luxembourg"
+            "country_name": "Luxembourg",
+            "value": 2
         },
         {
             "country_id": "MG",
-            "country_name": "Madagascar"
+            "country_name": "Madagascar",
+            "value": 3
         },
         {
             "country_id": "MW",
-            "country_name": "Malawi"
+            "country_name": "Malawi",
+            "value": 4
         },
         {
             "country_id": "MY",
-            "country_name": "Malaysia"
+            "country_name": "Malaysia",
+            "value": 5
         },
         {
             "country_id": "MV",
-            "country_name": "Maldives"
+            "country_name": "Maldives",
+            "value": 1
         },
         {
             "country_id": "ML",
-            "country_name": "Mali"
+            "country_name": "Mali",
+            "value": 2
         },
         {
             "country_id": "MT",
-            "country_name": "Malta"
+            "country_name": "Malta",
+            "value": 3
         },
         {
             "country_id": "MH",
-            "country_name": "Marshall Islands"
+            "country_name": "Marshall Islands",
+            "value": 4
         },
         {
             "country_id": "MR",
-            "country_name": "Mauritania"
+            "country_name": "Mauritania",
+            "value": 5
         },
         {
             "country_id": "RU",
-            "country_name": "Russia"
+            "country_name": "Russia",
+            "value": 1
         },
         {
             "country_id": "US",
-            "country_name": "United States"
+            "country_name": "United States",
+            "value": 2
         }
     ],
     "Under 5 Mortality Rate (per 1,000 live births)": [
         {
             "country_id": "BG",
-            "country_name": "Bulgaria"
+            "country_name": "Bulgaria",
+            "value": 1
         },
         {
             "country_id": "BF",
-            "country_name": "Burkina Faso"
+            "country_name": "Burkina Faso",
+            "value": 2
         },
         {
             "country_id": "BI",
-            "country_name": "Burundi"
+            "country_name": "Burundi",
+            "value": 3
         },
         {
             "country_id": "KH",
-            "country_name": "Cambodia"
+            "country_name": "Cambodia",
+            "value": 4
         },
         {
             "country_id": "CM",
-            "country_name": "Cameroon"
+            "country_name": "Cameroon",
+            "value": 5
         },
         {
             "country_id": "CA",
-            "country_name": "Canada"
+            "country_name": "Canada",
+            "value": 1
         },
         {
             "country_id": "CF",
-            "country_name": "Central African Republic"
+            "country_name": "Central African Republic",
+            "value": 2
         },
         {
             "country_id": "TD",
-            "country_name": "Chad"
+            "country_name": "Chad",
+            "value": 3
         },
         {
             "country_id": "CL",
-            "country_name": "Chile"
+            "country_name": "Chile",
+            "value": 4
         },
         {
             "country_id": "CN",
-            "country_name": "China"
+            "country_name": "China",
+            "value": 5
         },
         {
             "country_id": "CO",
-            "country_name": "Colombia"
+            "country_name": "Colombia",
+            "value": 1
         },
         {
             "country_id": "KM",
-            "country_name": "Comoros"
+            "country_name": "Comoros",
+            "value": 2
         },
         {
             "country_id": "CG",
-            "country_name": "Congo"
+            "country_name": "Congo",
+            "value": 3
         },
         {
             "country_id": "CR",
-            "country_name": "Costa Rica"
+            "country_name": "Costa Rica",
+            "value": 4
         },
         {
             "country_id": "HR",
-            "country_name": "Croatia"
+            "country_name": "Croatia",
+            "value": 5
         },
         {
             "country_id": "CU",
-            "country_name": "Cuba"
+            "country_name": "Cuba",
+            "value": 1
         },
         {
             "country_id": "CY",
-            "country_name": "Cyprus"
+            "country_name": "Cyprus",
+            "value": 2
         },
         {
             "country_id": "CZ",
-            "country_name": "Czech Republic"
+            "country_name": "Czech Republic",
+            "value": 3
         },
         {
             "country_id": "CI",
-            "country_name": "Côte d'Ivoire"
+            "country_name": "Côte d'Ivoire",
+            "value": 4
         },
         {
             "country_id": "DK",
-            "country_name": "Denmark"
+            "country_name": "Denmark",
+            "value": 5
         },
         {
             "country_id": "GD",
-            "country_name": "Grenada"
+            "country_name": "Grenada",
+            "value": 1
         },
         {
             "country_id": "GT",
-            "country_name": "Guatemala"
+            "country_name": "Guatemala",
+            "value": 2
         },
         {
             "country_id": "GN",
-            "country_name": "Guinea"
+            "country_name": "Guinea",
+            "value": 3
         },
         {
             "country_id": "GW",
-            "country_name": "Guinea-Bissau"
+            "country_name": "Guinea-Bissau",
+            "value": 4
         },
         {
             "country_id": "GY",
-            "country_name": "Guyana"
+            "country_name": "Guyana",
+            "value": 5
         },
         {
             "country_id": "HT",
-            "country_name": "Haiti"
+            "country_name": "Haiti",
+            "value": 1
         },
         {
             "country_id": "HN",
-            "country_name": "Honduras"
+            "country_name": "Honduras",
+            "value": 2
         },
         {
             "country_id": "HU",
-            "country_name": "Hungary"
+            "country_name": "Hungary",
+            "value": 3
         },
         {
             "country_id": "IS",
-            "country_name": "Iceland"
+            "country_name": "Iceland",
+            "value": 4
         },
         {
             "country_id": "IN",
-            "country_name": "India"
+            "country_name": "India",
+            "value": 5
         },
         {
             "country_id": "ID",
-            "country_name": "Indonesia"
+            "country_name": "Indonesia",
+            "value": 1
         },
         {
             "country_id": "IR",
-            "country_name": "Iran"
+            "country_name": "Iran",
+            "value": 2
         },
         {
             "country_id": "IQ",
-            "country_name": "Iraq"
+            "country_name": "Iraq",
+            "value": 3
         },
         {
             "country_id": "IE",
-            "country_name": "Ireland"
+            "country_name": "Ireland",
+            "value": 4
         },
         {
             "country_id": "IL",
-            "country_name": "Israel"
+            "country_name": "Israel",
+            "value": 5
         },
         {
             "country_id": "IT",
-            "country_name": "Italy"
+            "country_name": "Italy",
+            "value": 1
         },
         {
             "country_id": "JM",
-            "country_name": "Jamaica"
+            "country_name": "Jamaica",
+            "value": 2
         },
         {
             "country_id": "JP",
-            "country_name": "Japan"
+            "country_name": "Japan",
+            "value": 3
         },
         {
             "country_id": "JO",
-            "country_name": "Jordan"
+            "country_name": "Jordan",
+            "value": 4
         },
         {
             "country_id": "KZ",
-            "country_name": "Kazakhstan"
+            "country_name": "Kazakhstan",
+            "value": 5
         }
     ],
     "Neonatal Mortality Rate (per 1,000 live births)": [
         {
             "country_id": "DJ",
-            "country_name": "Djibouti"
+            "country_name": "Djibouti",
+            "value": 1
         },
         {
             "country_id": "DM",
-            "country_name": "Dominica"
+            "country_name": "Dominica",
+            "value": 2
         },
         {
             "country_id": "DO",
-            "country_name": "Dominican Republic"
+            "country_name": "Dominican Republic",
+            "value": 3
         },
         {
             "country_id": "EC",
-            "country_name": "Ecuador"
+            "country_name": "Ecuador",
+            "value": 4
         },
         {
             "country_id": "EG",
-            "country_name": "Egypt"
+            "country_name": "Egypt",
+            "value": 5
         },
         {
             "country_id": "SV",
-            "country_name": "El Salvador"
+            "country_name": "El Salvador",
+            "value": 1
         },
         {
             "country_id": "GQ",
-            "country_name": "Equatorial Guinea"
+            "country_name": "Equatorial Guinea",
+            "value": 2
         },
         {
             "country_id": "ER",
-            "country_name": "Eritrea"
+            "country_name": "Eritrea",
+            "value": 3
         },
         {
             "country_id": "EE",
-            "country_name": "Estonia"
+            "country_name": "Estonia",
+            "value": 4
         },
         {
             "country_id": "SZ",
-            "country_name": "Eswatini"
+            "country_name": "Eswatini",
+            "value": 5
         },
         {
             "country_id": "ET",
-            "country_name": "Ethiopia"
+            "country_name": "Ethiopia",
+            "value": 1
         },
         {
             "country_id": "FJ",
-            "country_name": "Fiji"
+            "country_name": "Fiji",
+            "value": 2
         },
         {
             "country_id": "FI",
-            "country_name": "Finland"
+            "country_name": "Finland",
+            "value": 3
         },
         {
             "country_id": "FR",
-            "country_name": "France"
+            "country_name": "France",
+            "value": 4
         },
         {
             "country_id": "GA",
-            "country_name": "Gabon"
+            "country_name": "Gabon",
+            "value": 5
         },
         {
             "country_id": "GM",
-            "country_name": "Gambia"
+            "country_name": "Gambia",
+            "value": 1
         },
         {
             "country_id": "GE",
-            "country_name": "Georgia"
+            "country_name": "Georgia",
+            "value": 2
         },
         {
             "country_id": "DE",
-            "country_name": "Germany"
+            "country_name": "Germany",
+            "value": 3
         },
         {
             "country_id": "GH",
-            "country_name": "Ghana"
+            "country_name": "Ghana",
+            "value": 4
         },
         {
             "country_id": "GR",
-            "country_name": "Greece"
+            "country_name": "Greece",
+            "value": 5
         },
         {
             "country_id": "KE",
-            "country_name": "Kenya"
+            "country_name": "Kenya",
+            "value": 1
         },
         {
             "country_id": "KI",
-            "country_name": "Kiribati"
+            "country_name": "Kiribati",
+            "value": 2
         },
         {
             "country_id": "RU",
-            "country_name": "Russia"
+            "country_name": "Russia",
+            "value": 3
         },
         {
             "country_id": "US",
-            "country_name": "United States"
+            "country_name": "United States",
+            "value": 4
         },
         {
             "country_id": "KW",
-            "country_name": "Kuwait"
+            "country_name": "Kuwait",
+            "value": 5
         },
         {
             "country_id": "KG",
-            "country_name": "Kyrgyzstan"
+            "country_name": "Kyrgyzstan",
+            "value": 1
         },
         {
             "country_id": "LA",
-            "country_name": "Laos"
+            "country_name": "Laos",
+            "value": 2
         },
         {
             "country_id": "LV",
-            "country_name": "Latvia"
+            "country_name": "Latvia",
+            "value": 3
         },
         {
             "country_id": "LB",
-            "country_name": "Lebanon"
+            "country_name": "Lebanon",
+            "value": 4
         },
         {
             "country_id": "LS",
-            "country_name": "Lesotho"
+            "country_name": "Lesotho",
+            "value": 5
         },
         {
             "country_id": "LR",
-            "country_name": "Liberia"
+            "country_name": "Liberia",
+            "value": 1
         },
         {
             "country_id": "LY",
-            "country_name": "Libya"
+            "country_name": "Libya",
+            "value": 2
         },
         {
             "country_id": "LT",
-            "country_name": "Lithuania"
+            "country_name": "Lithuania",
+            "value": 3
         },
         {
             "country_id": "LU",
-            "country_name": "Luxembourg"
+            "country_name": "Luxembourg",
+            "value": 4
         },
         {
             "country_id": "MG",
-            "country_name": "Madagascar"
+            "country_name": "Madagascar",
+            "value": 5
         }
     ],
     "Adolescent Birth Rate - 15-19 (per 1,000 women)": [
         {
             "country_id": "GD",
-            "country_name": "Grenada"
+            "country_name": "Grenada",
+            "value": 1
         },
         {
             "country_id": "GT",
-            "country_name": "Guatemala"
+            "country_name": "Guatemala",
+            "value": 2
         },
         {
             "country_id": "GN",
-            "country_name": "Guinea"
+            "country_name": "Guinea",
+            "value": 3
         },
         {
             "country_id": "GW",
-            "country_name": "Guinea-Bissau"
+            "country_name": "Guinea-Bissau",
+            "value": 4
         },
         {
             "country_id": "GY",
-            "country_name": "Guyana"
+            "country_name": "Guyana",
+            "value": 5
         },
         {
             "country_id": "HT",
-            "country_name": "Haiti"
+            "country_name": "Haiti",
+            "value": 1
         },
         {
             "country_id": "HN",
-            "country_name": "Honduras"
+            "country_name": "Honduras",
+            "value": 2
         },
         {
             "country_id": "HU",
-            "country_name": "Hungary"
+            "country_name": "Hungary",
+            "value": 3
         },
         {
             "country_id": "IS",
-            "country_name": "Iceland"
+            "country_name": "Iceland",
+            "value": 4
         },
         {
             "country_id": "IN",
-            "country_name": "India"
+            "country_name": "India",
+            "value": 5
         },
         {
             "country_id": "ID",
-            "country_name": "Indonesia"
+            "country_name": "Indonesia",
+            "value": 1
         },
         {
             "country_id": "IR",
-            "country_name": "Iran"
+            "country_name": "Iran",
+            "value": 2
         },
         {
             "country_id": "IQ",
-            "country_name": "Iraq"
+            "country_name": "Iraq",
+            "value": 3
         },
         {
             "country_id": "IE",
-            "country_name": "Ireland"
+            "country_name": "Ireland",
+            "value": 4
         },
         {
             "country_id": "IL",
-            "country_name": "Israel"
+            "country_name": "Israel",
+            "value": 5
         },
         {
             "country_id": "IT",
-            "country_name": "Italy"
+            "country_name": "Italy",
+            "value": 1
         },
         {
             "country_id": "JM",
-            "country_name": "Jamaica"
+            "country_name": "Jamaica",
+            "value": 2
         },
         {
             "country_id": "JP",
-            "country_name": "Japan"
+            "country_name": "Japan",
+            "value": 3
         },
         {
             "country_id": "JO",
-            "country_name": "Jordan"
+            "country_name": "Jordan",
+            "value": 4
         },
         {
             "country_id": "KZ",
-            "country_name": "Kazakhstan"
+            "country_name": "Kazakhstan",
+            "value": 5
         },
         {
             "country_id": "DJ",
-            "country_name": "Djibouti"
+            "country_name": "Djibouti",
+            "value": 1
         },
         {
             "country_id": "DM",
-            "country_name": "Dominica"
+            "country_name": "Dominica",
+            "value": 2
         },
         {
             "country_id": "DO",
-            "country_name": "Dominican Republic"
+            "country_name": "Dominican Republic",
+            "value": 3
         },
         {
             "country_id": "EC",
-            "country_name": "Ecuador"
+            "country_name": "Ecuador",
+            "value": 4
         },
         {
             "country_id": "EG",
-            "country_name": "Egypt"
+            "country_name": "Egypt",
+            "value": 5
         },
         {
             "country_id": "SV",
-            "country_name": "El Salvador"
+            "country_name": "El Salvador",
+            "value": 1
         },
         {
             "country_id": "GQ",
-            "country_name": "Equatorial Guinea"
+            "country_name": "Equatorial Guinea",
+            "value": 2
         },
         {
             "country_id": "ER",
-            "country_name": "Eritrea"
+            "country_name": "Eritrea",
+            "value": 3
         },
         {
             "country_id": "EE",
-            "country_name": "Estonia"
+            "country_name": "Estonia",
+            "value": 4
         },
         {
             "country_id": "SZ",
-            "country_name": "Eswatini"
+            "country_name": "Eswatini",
+            "value": 5
         },
         {
             "country_id": "ET",
-            "country_name": "Ethiopia"
+            "country_name": "Ethiopia",
+            "value": 1
         },
         {
             "country_id": "FJ",
-            "country_name": "Fiji"
+            "country_name": "Fiji",
+            "value": 2
         },
         {
             "country_id": "FI",
-            "country_name": "Finland"
+            "country_name": "Finland",
+            "value": 3
         },
         {
             "country_id": "FR",
-            "country_name": "France"
+            "country_name": "France",
+            "value": 4
         },
         {
             "country_id": "GA",
-            "country_name": "Gabon"
+            "country_name": "Gabon",
+            "value": 5
         },
         {
             "country_id": "GM",
-            "country_name": "Gambia"
+            "country_name": "Gambia",
+            "value": 1
         },
         {
             "country_id": "GE",
-            "country_name": "Georgia"
+            "country_name": "Georgia",
+            "value": 2
         },
         {
             "country_id": "DE",
-            "country_name": "Germany"
+            "country_name": "Germany",
+            "value": 3
         },
         {
             "country_id": "GH",
-            "country_name": "Ghana"
+            "country_name": "Ghana",
+            "value": 4
         },
         {
             "country_id": "GR",
-            "country_name": "Greece"
+            "country_name": "Greece",
+            "value": 5
         }
     ],
     "Percent of births <24 months after the preceding birth (%)": [
         {
             "country_id": "KE",
-            "country_name": "Kenya"
+            "country_name": "Kenya",
+            "value": 1
         },
         {
             "country_id": "KI",
-            "country_name": "Kiribati"
+            "country_name": "Kiribati",
+            "value": 2
         },
         {
             "country_id": "KW",
-            "country_name": "Kuwait"
+            "country_name": "Kuwait",
+            "value": 3
         },
         {
             "country_id": "KG",
-            "country_name": "Kyrgyzstan"
+            "country_name": "Kyrgyzstan",
+            "value": 4
         },
         {
             "country_id": "LA",
-            "country_name": "Laos"
+            "country_name": "Laos",
+            "value": 5
         },
         {
             "country_id": "LV",
-            "country_name": "Latvia"
+            "country_name": "Latvia",
+            "value": 1
         },
         {
             "country_id": "LB",
-            "country_name": "Lebanon"
+            "country_name": "Lebanon",
+            "value": 2
         },
         {
             "country_id": "LS",
-            "country_name": "Lesotho"
+            "country_name": "Lesotho",
+            "value": 3
         },
         {
             "country_id": "LR",
-            "country_name": "Liberia"
+            "country_name": "Liberia",
+            "value": 4
         },
         {
             "country_id": "LY",
-            "country_name": "Libya"
+            "country_name": "Libya",
+            "value": 5
         },
         {
             "country_id": "LT",
-            "country_name": "Lithuania"
+            "country_name": "Lithuania",
+            "value": 1
         },
         {
             "country_id": "LU",
-            "country_name": "Luxembourg"
+            "country_name": "Luxembourg",
+            "value": 2
         },
         {
             "country_id": "MG",
-            "country_name": "Madagascar"
+            "country_name": "Madagascar",
+            "value": 3
         },
         {
             "country_id": "MW",
-            "country_name": "Malawi"
+            "country_name": "Malawi",
+            "value": 4
         },
         {
             "country_id": "MY",
-            "country_name": "Malaysia"
+            "country_name": "Malaysia",
+            "value": 5
         },
         {
             "country_id": "MV",
-            "country_name": "Maldives"
+            "country_name": "Maldives",
+            "value": 1
         },
         {
             "country_id": "ML",
-            "country_name": "Mali"
+            "country_name": "Mali",
+            "value": 2
         },
         {
             "country_id": "MT",
-            "country_name": "Malta"
+            "country_name": "Malta",
+            "value": 3
         },
         {
             "country_id": "MH",
-            "country_name": "Marshall Islands"
+            "country_name": "Marshall Islands",
+            "value": 4
         },
         {
             "country_id": "MR",
-            "country_name": "Mauritania"
+            "country_name": "Mauritania",
+            "value": 5
         },
         {
             "country_id": "BG",
-            "country_name": "Bulgaria"
+            "country_name": "Bulgaria",
+            "value": 1
         },
         {
             "country_id": "BF",
-            "country_name": "Burkina Faso"
+            "country_name": "Burkina Faso",
+            "value": 2
         },
         {
             "country_id": "BI",
-            "country_name": "Burundi"
+            "country_name": "Burundi",
+            "value": 3
         },
         {
             "country_id": "KH",
-            "country_name": "Cambodia"
+            "country_name": "Cambodia",
+            "value": 4
         },
         {
             "country_id": "CM",
-            "country_name": "Cameroon"
+            "country_name": "Cameroon",
+            "value": 5
         },
         {
             "country_id": "CA",
-            "country_name": "Canada"
+            "country_name": "Canada",
+            "value": 1
         },
         {
             "country_id": "CF",
-            "country_name": "Central African Republic"
+            "country_name": "Central African Republic",
+            "value": 2
         },
         {
             "country_id": "TD",
-            "country_name": "Chad"
+            "country_name": "Chad",
+            "value": 3
         },
         {
             "country_id": "CL",
-            "country_name": "Chile"
+            "country_name": "Chile",
+            "value": 4
         },
         {
             "country_id": "CN",
-            "country_name": "China"
+            "country_name": "China",
+            "value": 5
         },
         {
             "country_id": "CO",
-            "country_name": "Colombia"
+            "country_name": "Colombia",
+            "value": 1
         },
         {
             "country_id": "KM",
-            "country_name": "Comoros"
+            "country_name": "Comoros",
+            "value": 2
         },
         {
             "country_id": "CG",
-            "country_name": "Congo"
+            "country_name": "Congo",
+            "value": 3
         },
         {
             "country_id": "CR",
-            "country_name": "Costa Rica"
+            "country_name": "Costa Rica",
+            "value": 4
         },
         {
             "country_id": "HR",
-            "country_name": "Croatia"
+            "country_name": "Croatia",
+            "value": 5
         },
         {
             "country_id": "CU",
-            "country_name": "Cuba"
+            "country_name": "Cuba",
+            "value": 1
         },
         {
             "country_id": "CY",
-            "country_name": "Cyprus"
+            "country_name": "Cyprus",
+            "value": 2
         },
         {
             "country_id": "CZ",
-            "country_name": "Czech Republic"
+            "country_name": "Czech Republic",
+            "value": 3
         },
         {
             "country_id": "CI",
-            "country_name": "Côte d'Ivoire"
+            "country_name": "Côte d'Ivoire",
+            "value": 4
         },
         {
             "country_id": "DK",
-            "country_name": "Denmark"
+            "country_name": "Denmark",
+            "value": 5
         }
     ]
 }

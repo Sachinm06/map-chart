@@ -1,23 +1,20 @@
+
 body {
     padding: 50px;
 }
 
 #searchInput {
     border: none;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 .search-area {
     float: right;
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     padding: 8px;
-    border-radius: 5px;
     font-size: 16px;
     margin-right: 10px;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    width: 200px;
+    width: 260px;
 }
 
 .search__icon {
@@ -148,5 +145,50 @@ body {
 }
 
 .highcharts-point:hover {
-    fill: #008080 !important; 
+    fill: #008080 !important;
+}
+
+#countryDropdown {
+    border: none;
+    appearance: none;
+    font-size: 13px;
+}
+
+.country-dropdown {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-bottom: none;
+}
+
+.indicator {
+    margin-top: 4px;
+    display: flex;
+    margin-left: 100px;
+}
+
+.indicator div {
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+    color: white;
+}
+
+.indicator>.div:first-child {
+    background-color: #808080;
+}
+
+.indicator>.div:nth-child(2) {
+    background-color: #FF9999;
+}
+
+.indicator>.div:nth-child(3) {
+    background-color: #FFA500;
+}
+
+.indicator>.div:nth-child(4) {
+    background-color: #FFFF00;
+}
+
+.indicator>.div:nth-child(5) {
+    background-color: #008000;
 }

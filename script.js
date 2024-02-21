@@ -16,7 +16,7 @@ const mapChart = Highcharts.mapChart('mapContainer', {
 
 let selectedCountries = [];
 
-function highlightCountries(countryCodes) {
+function highlightCountries(countryCodes, countryData) {
     console.log("Highlighting countries:", countryCodes);
 
     const mapSeries = mapChart.series[0];
@@ -24,14 +24,30 @@ function highlightCountries(countryCodes) {
 
     mapPoints.forEach(point => {
         const countryCode = point['hc-key'];
-        if (countryCodes.includes(countryCode.toLowerCase())) {
-            point.update({ color: '#FF0000' }, false);
-        } else {
-            point.update({ color: '#E0E0E0' }, false);
-        }
+        const country = countryData.find(country => country.country_id.toLowerCase() === countryCode);
+        const value = country ? country.value : null;
+        const color = getColorForValue(value);
+        point.update({ color: color }, false);
     });
 
     mapChart.redraw();
+}
+
+function getColorForValue(value) {
+    switch (value) {
+        case 1:
+            return '#808080';
+        case 2:
+            return '#FF9999';
+        case 3:
+            return '#FFA500';
+        case 4:
+            return '#FFFF00';
+        case 5:
+            return '#008000';
+        default:
+            return '#E0E0E0';
+    }
 }
 
 $.getJSON("map.json", function (jsonData) {
@@ -42,13 +58,19 @@ $.getJSON("map.json", function (jsonData) {
     selectElement.addEventListener('change', (event) => {
         const selectedCategory = event.target.value;
         const selectedCountriesData = jsonData[selectedCategory];
-        selectedCountries = selectedCountriesData.map(country => country.country_id.toLowerCase());
 
-        console.log("Selected countries:", selectedCountries);
-        console.log("Selected category data:", selectedCountriesData);
+        if (selectedCountriesData && selectedCountriesData.length > 0) {
+            selectedCountries = selectedCountriesData.map(country => country.country_id.toLowerCase());
 
-        highlightCountries(selectedCountries);
+            console.log("Selected countries:", selectedCountries);
+            console.log("Selected category data:", selectedCountriesData);
+
+            highlightCountries(selectedCountries, selectedCountriesData);
+        } else {
+            console.error('Selected country data is missing or empty.');
+        }
     });
+
 
     const mapContainer = document.getElementById('mapContainer');
     if (mapContainer) {
@@ -86,13 +108,21 @@ mapChart.series[0].points.forEach(function (point) {
     });
 });
 
+
 mapChart.series[0].points.forEach(function (point) {
-    point.graphic.element.addEventListener('click', function () {
+    point.graphic.element.addEventListener('click', function (event) {
+        event.stopPropagation();
+
         const selectedCountry = point['hc-key'];
-        populateMap([selectedCountry]);
-        mapPopup(selectedCountry);
+        if (selectedCountries.includes(selectedCountry)) {
+            console.log("Country clicked:", selectedCountry);
+            showPopup(selectedCountry);
+            populateMap([selectedCountry]);
+            mapPopup(selectedCountry);
+        }
     });
 });
+
 
 function populateMap(selectedCountries) {
     const mapSeries = mapChart.series[0];
@@ -215,3 +245,69 @@ function hideMapPopup() {
     popup.classList.remove('slide-in');
     popup.style.display = 'none';
 }
+
+document.getElementById('searchInput').addEventListener('input', function (event) {
+    const searchText = event.target.value.trim().toLowerCase();
+    const dropdownContainer = document.querySelector('.country-dropdown');
+
+    if (searchText === '') {
+        if (dropdownContainer) {
+            dropdownContainer.style.display = 'block';
+        }
+    } else {
+        if (dropdownContainer) {
+            dropdownContainer.style.display = 'none';
+        }
+
+        const filteredCountries = Highcharts.maps['custom/world'].features.filter((feature) => {
+            const countryName = feature.properties.name.toLowerCase();
+            return countryName.includes(searchText);
+        }).map((feature) => feature.properties['hc-key']);
+
+        highlightCountries(filteredCountries);
+    }
+});
+
+document.addEventListener('click', function (event) {
+    const dropdownContainer = document.querySelector('.country-dropdown');
+    if (dropdownContainer && !dropdownContainer.contains(event.target)) {
+        dropdownContainer.style.display = 'none';
+    }
+});
+
+document.getElementById('searchInput').addEventListener('click', function (event) {
+    const dropdownContainer = document.createElement('div');
+    dropdownContainer.classList.add('country-dropdown');
+
+    const dropdown = document.createElement('select');
+    dropdown.id = 'countryDropdown';
+    dropdown.size = 5;
+
+    const allCountries = Highcharts.maps['custom/world'].features;
+
+    allCountries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country.properties['hc-key'];
+        option.textContent = country.properties.name;
+        dropdown.appendChild(option);
+    });
+
+    dropdown.addEventListener('change', function () {
+        const selectedCountryCode = dropdown.value;
+        highlightCountries([selectedCountryCode]);
+    });
+
+    dropdownContainer.appendChild(dropdown);
+    event.target.parentNode.appendChild(dropdownContainer);
+
+    event.stopPropagation();
+
+    dropdown.click();
+});
+
+document.addEventListener('click', function (event) {
+    const dropdownContainer = document.querySelector('.country-dropdown');
+    if (dropdownContainer && !dropdownContainer.contains(event.target)) {
+        dropdownContainer.parentNode.removeChild(dropdownContainer);
+    }
+});
