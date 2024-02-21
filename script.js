@@ -33,6 +33,37 @@ function highlightCountries(countryCodes, countryData) {
     mapChart.redraw();
 }
 
+function highlightSearchedCountries(countryCodes) {
+    const mapSeries = mapChart.series[0];
+    const mapPoints = mapSeries.points;
+
+    mapPoints.forEach(point => {
+        const countryCode = point['hc-key'].toLowerCase();
+        const color = countryCodes.includes(countryCode) ? '#008080' : getColorForValue(null);
+        point.update({ color: color }, false);
+    });
+
+    mapChart.redraw();
+
+    zoomToCountry(countryCodes[0]);
+}
+
+function zoomToCountry(countryCode) {
+    const mapSeries = mapChart.series[0];
+    const point = mapSeries.points.find(p => p['hc-key'] === countryCode);
+    if (!point) return;
+
+    const bounds = point.graphic.getBBox();
+    const centerX = bounds.x + bounds.width / 2;
+    const centerY = bounds.y + bounds.height / 2;
+    const zoomX = mapChart.chartWidth / bounds.width;
+    const zoomY = mapChart.chartHeight / bounds.height;
+    const zoom = Math.min(zoomX, zoomY);
+
+    mapChart.mapZoom(zoom, centerX, centerY);
+  
+}
+
 function getColorForValue(value) {
     switch (value) {
         case 1:
@@ -67,7 +98,7 @@ $.getJSON("map.json", function (jsonData) {
 
             highlightCountries(selectedCountries, selectedCountriesData);
         } else {
-            console.error('Selected country data is missing or empty.');
+            console.error('data is missing');
         }
     });
 
@@ -234,6 +265,7 @@ function mapPopup(countryCode) {
         .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
 
+
 function hidePopup() {
     const popup = document.getElementById('countryPopup');
     popup.classList.remove('slide-in');
@@ -264,7 +296,7 @@ document.getElementById('searchInput').addEventListener('input', function (event
             return countryName.includes(searchText);
         }).map((feature) => feature.properties['hc-key']);
 
-        highlightCountries(filteredCountries);
+        highlightSearchedCountries(filteredCountries);
     }
 });
 
@@ -276,33 +308,43 @@ document.addEventListener('click', function (event) {
 });
 
 document.getElementById('searchInput').addEventListener('click', function (event) {
-    const dropdownContainer = document.createElement('div');
-    dropdownContainer.classList.add('country-dropdown');
+    let dropdownContainer = document.querySelector('.country-dropdown');
 
-    const dropdown = document.createElement('select');
-    dropdown.id = 'countryDropdown';
-    dropdown.size = 5;
+    if (!dropdownContainer) {
+        dropdownContainer = document.createElement('div');
+        dropdownContainer.classList.add('country-dropdown');
 
-    const allCountries = Highcharts.maps['custom/world'].features;
+        const dropdown = document.createElement('select');
+        dropdown.id = 'countryDropdown';
+        dropdown.size = 5;
 
-    allCountries.forEach(country => {
-        const option = document.createElement('option');
-        option.value = country.properties['hc-key'];
-        option.textContent = country.properties.name;
-        dropdown.appendChild(option);
-    });
+        const allCountries = Highcharts.maps['custom/world'].features;
 
-    dropdown.addEventListener('change', function () {
-        const selectedCountryCode = dropdown.value;
-        highlightCountries([selectedCountryCode]);
-    });
+        allCountries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country.properties['hc-key'];
+            option.textContent = country.properties.name;
+            dropdown.appendChild(option);
+        });
 
-    dropdownContainer.appendChild(dropdown);
-    event.target.parentNode.appendChild(dropdownContainer);
+        dropdown.addEventListener('change', function () {
+            const selectedCountryCode = dropdown.value;
+            // highlightCountries([selectedCountryCode]);
+            highlightSearchedCountries([selectedCountryCode]);
+
+        });
+
+        dropdownContainer.appendChild(dropdown);
+        event.target.parentNode.appendChild(dropdownContainer);
+    } else {
+        dropdownContainer.style.display = 'block';
+    }
 
     event.stopPropagation();
 
-    dropdown.click();
+    dropdownContainer.addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
 });
 
 document.addEventListener('click', function (event) {
