@@ -185,36 +185,3 @@ h2::after {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
-
-.indicator {
-    margin-top: 4px;
-    display: flex;
-    margin-left: 100px;
-}
-
-.indicator div {
-    border: 1px solid black;
-    width: 50px;
-    text-align: center;
-    color: white;
-}
-
-.indicator>.div:first-child {
-    background-color: #808080;
-}
-
-.indicator>.div:nth-child(2) {
-    background-color: #FF9999;
-}
-
-.indicator>.div:nth-child(3) {
-    background-color: #FFA500;
-}
-
-.indicator>.div:nth-child(4) {
-    background-color: #FFFF00;
-}
-
-.indicator>.div:nth-child(5) {
-    background-color: #008000;
-}

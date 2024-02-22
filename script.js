@@ -4,8 +4,31 @@ const mapChart = Highcharts.mapChart('mapContainer', {
     },
     series: [{
         mapData: Highcharts.maps['custom/world'],
-        name: 'All Countries'
+        name: 'All Countries',
+        keys: ['hc-key', 'value'],
+        states: {
+            hover: {
+                color: '#BADA55'
+            }
+        }
     }],
+    colorAxis: {
+        min: 1,
+        max: 5,
+        stops: [
+            [0, '#808080'],
+            [0.25, '#FF9999'],
+            [0.5, '#FFA500'],
+            [0.75, '#FFFF00'],
+            [1, '#008000']
+        ],
+        labels: {
+            format: '{value}',
+            style: {
+                color: 'black'
+            }
+        }
+    },
     mapNavigation: {
         enabled: true,
         buttonOptions: {
@@ -61,7 +84,7 @@ function zoomToCountry(countryCode) {
     const zoom = Math.min(zoomX, zoomY);
 
     mapChart.mapZoom(zoom, centerX, centerY);
-  
+
 }
 
 function getColorForValue(value) {
@@ -113,20 +136,19 @@ $.getJSON("map.json", function (jsonData) {
     selectElement.dispatchEvent(new Event('change'));
 });
 
-mapChart.series[0].points.forEach(function (point) {
-    point.graphic.element.addEventListener('click', function (event) {
-        event.stopPropagation();
 
+mapChart.series[0].points.forEach(point => {
+    point.graphic.element.addEventListener('click', event => {
+        event.stopPropagation();
         const selectedCountry = point['hc-key'];
         if (selectedCountries.includes(selectedCountry)) {
             console.log("Country clicked:", selectedCountry);
             showPopup(selectedCountry);
+            mapPopup(selectedCountry);
         }
     });
-});
 
-mapChart.series[0].points.forEach(function (point) {
-    point.graphic.element.addEventListener('mouseover', function () {
+    point.graphic.element.addEventListener('mouseover', () => {
         const selectedCountry = point['hc-key'];
         if (selectedCountries.includes(selectedCountry)) {
             console.log("Mouse over selected country:", selectedCountry);
@@ -134,44 +156,8 @@ mapChart.series[0].points.forEach(function (point) {
         }
     });
 
-    point.graphic.element.addEventListener('mouseout', function () {
-        hidePopup();
-    });
+    point.graphic.element.addEventListener('mouseout', hidePopup);
 });
-
-
-mapChart.series[0].points.forEach(function (point) {
-    point.graphic.element.addEventListener('click', function (event) {
-        event.stopPropagation();
-
-        const selectedCountry = point['hc-key'];
-        if (selectedCountries.includes(selectedCountry)) {
-            console.log("Country clicked:", selectedCountry);
-            showPopup(selectedCountry);
-            populateMap([selectedCountry]);
-            mapPopup(selectedCountry);
-        }
-    });
-});
-
-
-function populateMap(selectedCountries) {
-    const mapSeries = mapChart.series[0];
-    const mapPoints = mapSeries.points;
-
-    mapPoints.forEach(point => {
-        point.update({ color: '#E0E0E0' }, false);
-    });
-
-    selectedCountries.forEach((code) => {
-        const point = mapSeries.points.find(p => p['hc-key'] === code);
-        if (point) {
-            point.update({ color: '#008080' }, false);
-        }
-    });
-
-    mapChart.redraw();
-}
 
 function showPopup(countryCode) {
     const countryData = Highcharts.maps['custom/world'].features.find(feature => feature.properties['hc-key'] === countryCode).properties;
